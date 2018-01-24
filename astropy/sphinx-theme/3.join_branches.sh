@@ -8,3 +8,5 @@ git filter-branch -f --commit-filter 'if [[ $GIT_COMMIT == 0e075563dba8d4f028bcb
                                       else
                                           git commit-tree "$@";
                                       fi'  HEAD
+
+git prune
