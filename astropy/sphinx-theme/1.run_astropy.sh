@@ -6,7 +6,7 @@ cd sphinx-astropy-theme
 git init
 
 # Add the astropy-helpers as a remote
-git remote add astropy http://github.com/astropy/astropy
+git remote add astropy https://github.com/astropy/astropy
 git fetch astropy
 git checkout astropy/master
 git checkout -b astropy-import

@@ -1,10 +1,10 @@
-#!/bin/bash -x
+#!/bin/bash -xe
 
 # Assume that 1.run_astropy.sh has already been run
 cd sphinx-astropy-theme
 
 # Add the astropy-helpers as a remote
-git remote add helpers git://github.com/astropy/astropy-helpers
+git remote add helpers https://github.com/astropy/astropy-helpers
 git fetch helpers
 git checkout helpers/master
 git checkout -b helpers-import
@@ -20,7 +20,7 @@ git filter-branch -f --prune-empty --tree-filter $PWD/../tree_filter_helpers.sh 
 git checkout helpers-import
 
 # Get rid of empty branches/merges
-../../common/filter_empty_merges.sh helpers-import
+../../../common/filter_empty_merges.sh helpers-import
 
 # Finally re-write commit messages to specify original repo in the merge commits
-git filter-branch -f --msg-filter $PWD/../msg_filter.py helpers-import
+git filter-branch -f --msg-filter "sed 's/pull request #/pull request astropy\/astropy\-helpers#/g'" helpers-import
