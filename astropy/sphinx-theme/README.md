@@ -14,4 +14,8 @@ To reproduce the git workflow, run the following scripts in this directory::
     ./2.run_helpers.sh
     ./3.join_branches.sh
 
+or you can also simply run::
+
+    ./run_all.sh
+
 Note that the first script will require several hours to run, so be patient!
