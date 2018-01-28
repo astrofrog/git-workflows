@@ -10,8 +10,9 @@ git checkout helpers/master
 git checkout -b helpers-import
 
 # Set master branch to match the helpers at the same point where we want to split
-# off the theme.
-git reset --hard 9f1eab94eb544488a854d454d3638e66fecbe9c7
+# off the theme. We don't include 5fdcd34137178a66825adad909f46a1af77c9beb because
+# it was manually included with a separate PR into sphinx-automodapi
+git reset --hard 5c3ec5401163888e1487bf64aebbfdd52affd964
 
 # Move the theme directory in place and remove any other irrelevant files
 git filter-branch -f --prune-empty --tree-filter $PWD/../tree_filter_helpers.sh helpers-import

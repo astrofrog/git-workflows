@@ -4,6 +4,7 @@ mkdir -p sphinx_automodapi
 
 if [ -d "astropy_helpers/sphinx/ext" ]; then
   mv astropy_helpers/sphinx/ext/__init__.py sphinx_automodapi/ || true;
+  mv astropy_helpers/sphinx/ext/autodoc_enhancements.py sphinx_automodapi/ || true;
   mv astropy_helpers/sphinx/ext/astropyautosummary.py sphinx_automodapi/ || true;
   mv astropy_helpers/sphinx/ext/automodapi.py sphinx_automodapi/ || true;
   mv astropy_helpers/sphinx/ext/automodsumm.py sphinx_automodapi/ || true;

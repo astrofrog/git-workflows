@@ -12,8 +12,9 @@ git checkout astropy/master
 git checkout -b astropy-import
 
 # Set master branch to match the helpers at the same point where we want to split
-# off the theme.
-git reset --hard 2bf73db71a8c37d6b9a9f070c53a11c92b678539
+# off the theme. The theme was split off on March 26th
+# git reset --hard 2bf73db71a8c37d6b9a9f070c53a11c92b678539
+# UPDATE ME!
 
 # One of the commits has the parents in the wrong order so we fix this here
 git filter-branch -f --parent-filter $PWD/../fix-parents-astropy.py astropy-import
@@ -28,5 +29,8 @@ git checkout astropy-import
 ../../../common/filter_empty_merges.sh astropy-import
 
 # Finally re-write commit messages to specify original repo in the merge commits
-# git filter-branch -f --msg-filter "sed 's/pull request #2 from eteq/pull request kbarbary\/astropy#2 from eteq/g'" astropy-import
-# git filter-branch -f --msg-filter "sed 's/pull request #/pull request astropy\/astropy#/g'" astropy-import
+git filter-branch -f --msg-filter "sed 's/pull request #/pull request astropy\/astropy#/g'" astropy-import
+
+# Temporary fix for incorrect initial commit above
+# Merge pull request astropy/astropy#2228 from hamogu/patch-1
+git reset --hard 508375ea901f108efdde8c94fc875e08f419d94a
